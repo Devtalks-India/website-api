@@ -48,7 +48,7 @@ async function getRow() {
     const api = google.sheets({ version: 'v4', auth });
     const response = await api.spreadsheets.values.get({
         spreadsheetId: '1e2GXQAvCEeJ-iUtQzTCSI_US-6Hh1K_22rYbbokyzj0',
-        range: 'Events!A:F'
+        range: 'Events!A:G'
     });
 
     let frow = true;
