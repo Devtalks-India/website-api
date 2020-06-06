@@ -1,6 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
+import { Next } from 'compose-middleware';
 
-const response = (req: Request, res: Response, next: NextFunction) => {
+const response = (req: Request, res: Response, next: Next) => {
   res.api = function ($res) {
     return res.json({
       status: 'success',
