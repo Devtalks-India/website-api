@@ -1,4 +1,6 @@
-const response = (req, res, next) => {
+import { Request, Response, NextFunction } from 'express';
+
+const response = (req: Request, res: Response, next: NextFunction) => {
   res.api = function ($res) {
     return res.json({
       status: 'success',
@@ -15,5 +17,4 @@ const response = (req, res, next) => {
   next();
 };
 
-
-module.exports = response;
+export default response;
