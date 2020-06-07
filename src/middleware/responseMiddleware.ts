@@ -1,15 +1,15 @@
 import { Request, Response } from 'express';
 import { Next } from 'compose-middleware';
 
-const response = (_: Request, res: Response, next: Next) => {
-  res.api = function ($res) {
+const responseMiddleware = (_: Request, res: Response, next: Next) => {
+  res.api = function ($res: any) {
     return res.json({
       status: 'success',
       data: $res
     });
   }
 
-  res.error = function ($res) {
+  res.error = function ($res: any) {
     return res.json({
       status: 'error',
       data: $res
@@ -18,4 +18,4 @@ const response = (_: Request, res: Response, next: Next) => {
   next();
 };
 
-export default response;
+export default responseMiddleware;
