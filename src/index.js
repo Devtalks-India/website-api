@@ -23,6 +23,10 @@ app.get('/speakers', async (req, res) => {
   res.api({ speakers });
 });
 
+app.use(function (req, res, next) {
+  res.status(404).send("Sorry can't find that! "+ req.url)
+})
+
 app.listen(port, () => {
   console.log('Listening!', port);
 });
