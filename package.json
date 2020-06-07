@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts --project ./tsconifg.json",
-    "start:dev": "nodemon --exec npm start --watch ./* -L"
+    "start": "ts-node src/index.ts",
+    "start:dev": "nodemon src/index.ts"
   },
   "keywords": [],
   "author": "",
