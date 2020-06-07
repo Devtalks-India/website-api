@@ -16,9 +16,9 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@": ["./*"]
+      "@/*": ["./src/*"]
     },
     "esModuleInterop": true,
     "moduleResolution": "node",
