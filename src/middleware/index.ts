@@ -3,7 +3,7 @@ import cors from 'cors';
 import responseMiddleWare from './responseMiddleware';
 
 const middleware = [
-  cors as any,
+  cors() as any,
   responseMiddleWare
 ];
 
