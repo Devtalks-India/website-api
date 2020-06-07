@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-
     "target": "es6",
     "module": "commonjs",
     "lib": ["ESNext", "ES2019"],
@@ -33,5 +32,9 @@
   "exclude": ["node_modules"],
   "include": [
     "./src/**/*", "./src/**/*.tsx", "./src/**/*.ts"
-  ]
+  ],
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true
+  }
 }
