@@ -2,6 +2,7 @@ import express, { Request, Response} from 'express';
 import groupBy  from 'lodash/groupBy';
 import camelCase  from 'lodash/camelCase';
 import mapKeys  from 'lodash/mapKeys';
+import trimEnd  from 'lodash/trimEnd';
 import middleware from './middleware';
 import { getSheet, appendSheet }  from './services/googleSheet';
 
@@ -18,9 +19,13 @@ app.get('/events', async (_: Request, res: Response) => {
   res.api({ events: groupedEvents });
 });
 
-app.get('/:type', async (req: Request, res: Response) => {
-  const type = req.param('type');
+app.get('/:type/:id?', async (req: Request, res: Response) => {
+  const { type, id } = req.params;
   const values = await getSheet(type);
+  if (id) {
+    const item = values.find(val => val.id === id);
+    return res.api({ [trimEnd(type, 's')]: item });
+  }
   res.api({ [type]: values });
 });
 
