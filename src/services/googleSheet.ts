@@ -25,3 +25,16 @@ export const getRows = async function (options: sheets_v4.Params$Resource$Spread
 export const getSheet = async (range: string) => {
   return getRows({ spreadsheetId, range });
 }
+
+export const appendSheet = async (range: string, rows: ISheetData['values']) => {
+  const api = await apiClient();
+  return api.spreadsheets.values.append({
+    spreadsheetId,
+    range,
+    valueInputOption: 'raw',
+    insertDataOption: 'INSERT_ROWS',
+    requestBody: {
+      values: rows
+    }
+  });
+};
