@@ -22,6 +22,10 @@ export const getRows = async function (options: sheets_v4.Params$Resource$Spread
   return convertArrToObj(values);
 };
 
+export const getSheet = async (range: string) => {
+  return getRows({ spreadsheetId, range });
+}
+
 export const getSpeakers = async function () {
   return getRows({ spreadsheetId, range: 'Speakers' });
 };
