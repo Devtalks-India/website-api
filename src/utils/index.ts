@@ -1,7 +1,7 @@
 import camelCase from 'lodash/camelCase';
 
 export const mapArrToKeys = <T>(keys: string[], row: T[]): Record<string, T> =>
-  keys.reduce((obj, key, index) => ({ ...obj, [key]: row[index] }), {});
+  keys.reduce((obj, key, index) => ({ ...obj, [key]: row[index] || '' }), {});
 
 export const convertArrToObj = (arr: Array<(string | Record<string, any>)[]>): Record<string, string | Record<string, any>>[] => {
   const values = [...arr];
