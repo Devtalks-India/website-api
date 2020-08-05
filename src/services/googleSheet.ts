@@ -23,9 +23,9 @@ export const getRows = async function (options: sheets_v4.Params$Resource$Spread
 };
 
 export const getSpeakers = async function () {
-  return getRows({ spreadsheetId, range: 'Speakers!A:G' });
+  return getRows({ spreadsheetId, range: 'Speakers' });
 };
 
 export const getEvents = async function () {
-  return getRows({ spreadsheetId, range: 'Events!A:G' });
+  return getRows({ spreadsheetId, range: 'Events' });
 };
