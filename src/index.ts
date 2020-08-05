@@ -33,8 +33,12 @@ app.post('/:type', async (req: Request, res: Response) => {
   const { type } = req.params;
   const rows = req.body;
 
-  const response = await appendSheet(type, rows);
-  res.api(response);
+  try {
+    const response = await appendSheet(type, rows);
+    return res.api(response);
+  } catch (err) {
+    res.status(400).error({ error: err });
+  }
 });
 
 app.listen(port, () => {
